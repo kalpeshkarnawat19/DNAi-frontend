@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
+import LoginPage from "./pages/LoginPage.jsx"; 
 
-function App() {
+function HomePage() {
   const [symptoms, setSymptoms] = useState('')
 
   return (
@@ -28,7 +30,18 @@ function App() {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default function App() {
+  return(
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        {/* optional: if someone types random path */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+}

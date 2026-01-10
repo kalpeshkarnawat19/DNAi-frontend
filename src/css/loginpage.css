@@ -1,0 +1,112 @@
+:root{
+  --deep-bg: #05070a;
+  --neon-cyan: #00f2ff;
+}
+
+*{ box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--deep-bg);
+  color: white;
+  font-family: Inter, sans-serif;
+}
+
+/* Branding stays top-left*/
+.branding {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  text-align: left;
+  z-index: 10;
+}
+
+/* Center the boxes*/
+.page-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.container {
+  width: min(800px, 92vw);  
+  padding: 40px;
+  border-radius: 20px;
+
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  background: rgba(0, 242, 255, 0.02);
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
+
+  display: flex;
+  justify-content: center;   
+  gap: 40px;
+}
+
+/* The two inner boxes */
+.login-section, .register-section {
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;  
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.input-box{
+  width: 80%;
+  padding: 12px;
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+/*buttons*/
+.login-btn, .register-btn{
+  width: 70%;
+  margin-top: 30px;
+  padding: 18px;
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+  border-radius: 8px;
+}
+
+.login-btn:hover, .register-btn:hover{
+  background: var(--neon-cyan);
+  color: black;
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-section, .register-section {
+    width: min(420px, 100%);
+  }
+}

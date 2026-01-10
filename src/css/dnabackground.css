@@ -1,0 +1,64 @@
+:root {
+  --neon-cyan: #00f2ff;
+}
+
+.dna-background {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.dna-helix {
+  width: 6rem; /* bigger so you can see it */
+}
+
+.strand {
+  position: relative;
+  width: 6rem;
+  height: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.strand::before,
+.strand::after {
+  content: "";
+  position: absolute;
+  background: var(--neon-cyan);
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-delay: calc(var(--s) * -0.12s);
+}
+
+.strand::before {
+  left: 0.75rem;
+  top: 0.45rem;
+  width: 4.5rem;
+  height: 0.18rem;
+  animation-name: line;
+}
+
+.strand::after {
+  top: 0.25rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  box-shadow: 5.3rem 0 0 var(--neon-cyan);
+  animation-name: ball;
+}
+
+@keyframes line {
+  to { transform: scaleX(0); }
+}
+
+@keyframes ball {
+  to {
+    transform: translateX(2.7rem);
+    box-shadow: 0 0 0 var(--neon-cyan);
+  }
+}
