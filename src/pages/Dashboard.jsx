@@ -6,6 +6,7 @@ function DoctorDashboard() {
   const navigate = useNavigate();
   
   // Mock data for the patient log
+  //<button className="glow-button small secondary">Update Records</button>
   const [patients] = useState([
     { id: 'P101', name: 'Jay Kelani', lastVisit: '2026-01-10', status: 'Diagnosed' },
     { id: 'P102', name: 'Kalpesh Karnawat', lastVisit: '2026-01-12', status: 'Pending' },
@@ -23,7 +24,6 @@ function DoctorDashboard() {
           <h1>Welcome, Dr. Kavin Sharma</h1>
           <div className="action-row">
             <button className="glow-button small">Add New Patient</button>
-            <button className="glow-button small secondary">Update Records</button>
           </div>
         </header>
 
@@ -35,8 +35,9 @@ function DoctorDashboard() {
                 <th>Patient ID</th>
                 <th>Name</th>
                 <th>Last Visit</th>
-                <th>Status</th>
+                <th>Status</th> 
                 <th>Action</th>
+                <th>Edit Records</th>
               </tr>
             </thead>
             <tbody>
@@ -52,6 +53,9 @@ function DoctorDashboard() {
                   </td>
                   <td>
                     <button className="table-link">View Analysis</button>
+                  </td>
+                  <td>
+                    <button className="glow-button small secondary">Update Records</button>
                   </td>
                 </tr>
               ))}
