@@ -20,7 +20,6 @@ body {
   font-family: Inter, sans-serif;
 }
 
-/* Branding stays top-left*/
 .branding {
   position: fixed;
   top: 40px;
@@ -29,7 +28,6 @@ body {
   z-index: 10;
 }
 
-/* Center the boxes*/
 .page-wrapper {
   min-height: 100vh;
   width: 100vw;
@@ -55,7 +53,6 @@ body {
   gap: 40px;
 }
 
-/* The two inner boxes */
 .login-section,
 .register-section {
   border: 1px solid rgba(0, 242, 255, 0.3);
@@ -73,9 +70,9 @@ body {
 }
 
 .input-box {
-  width: 85%; /* Slightly adjusted for better alignment */
+  width: 80%; 
   padding: 12px;
-  margin-bottom: 20px; /* This creates the spacing you asked for */
+  margin-bottom: 25px; 
   border: 1px solid rgba(0, 242, 255, 0.3);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
@@ -86,8 +83,8 @@ body {
 .login-btn,
 .register-btn {
   width: 55%; 
-  margin-top: 10px; /* Reduced since input-box now has margin-bottom */
-  padding: 14px; /* Slightly tighter padding for a cleaner look */
+  margin-top: 10px; 
+  padding: 14px; 
   background: transparent;
   border: 1px solid var(--neon-cyan);
   color: var(--neon-cyan);
@@ -100,7 +97,6 @@ body {
   border-radius: 8px;
 }
 
-/* Mobile: stack nicely */
 @media (max-width: 900px) {
   .container {
     flex-direction: column;

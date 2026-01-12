@@ -1,31 +1,32 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
-import LoginPage from "./pages/LoginPage.jsx"; 
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
+import LoginPage from "./pages/LoginPage.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 function HomePage() {
-  const [symptoms, setSymptoms] = useState('')
+  const [symptoms, setSymptoms] = useState('');
 
   return (
     <div className="app-viewport">
-      {/* Top Left Branding */}
       <nav className="branding">
         <div className="logo">DNAi</div>
         <div className="tagline">Diagnosis Assistant</div>
       </nav>
 
-      {/* Perfectly Centered Input Area */}
       <main className="content-center">
         <div className="input-card">
           <h2>Enter The Symptoms</h2>
-          <p className="hint">Please document patient findings using standardized medical terminology. Enter clinical manifestations and diagnostic observations using precise, medically recognized vocabulary. Avoid colloquial expressions or non-clinical descriptors.</p>
-          
-          <textarea 
-            placeholder="Describe the medical case..." 
+          <p className="hint">
+            Please document patient findings using standardized medical terminology...
+          </p>
+
+          <textarea
+            placeholder="Describe the medical case..."
             value={symptoms}
             onChange={(e) => setSymptoms(e.target.value)}
           />
-          
+
           <button className="analyze-btn">Initialize Analysis</button>
         </div>
       </main>
@@ -34,12 +35,11 @@ function HomePage() {
 }
 
 export default function App() {
-  return(
+  return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        {/* optional: if someone types random path */}
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

@@ -1,9 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // You must add this import
+import { useNavigate } from "react-router-dom";
 import "../css/loginpage.css";
 
 function LoginPage() {
-  const navigate = useNavigate(); // Initialize the navigate hook
+  const navigate = useNavigate(); 
 
   return (
     <>
