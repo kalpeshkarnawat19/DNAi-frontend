@@ -1,11 +1,14 @@
-:root{
+:root {
   --deep-bg: #05070a;
   --neon-cyan: #00f2ff;
 }
 
-*{ box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -39,7 +42,7 @@ body {
 }
 
 .container {
-  width: min(800px, 92vw);  
+  width: min(800px, 92vw);
   padding: 40px;
   border-radius: 20px;
 
@@ -48,18 +51,19 @@ body {
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
 
   display: flex;
-  justify-content: center;   
+  justify-content: center;
   gap: 40px;
 }
 
 /* The two inner boxes */
-.login-section, .register-section {
+.login-section,
+.register-section {
   border: 1px solid rgba(0, 242, 255, 0.3);
   padding: 30px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
   flex: 1;
-  text-align: center;  
+  text-align: center;
 }
 
 .description {
@@ -68,20 +72,22 @@ body {
   font-size: 14px;
 }
 
-.input-box{
-  width: 80%;
+.input-box {
+  width: 85%; /* Slightly adjusted for better alignment */
   padding: 12px;
+  margin-bottom: 20px; /* This creates the spacing you asked for */
   border: 1px solid rgba(0, 242, 255, 0.3);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
   color: white;
 }
 
-/*buttons*/
-.login-btn, .register-btn{
-  width: 70%;
-  margin-top: 30px;
-  padding: 18px;
+
+.login-btn,
+.register-btn {
+  width: 55%; 
+  margin-top: 10px; /* Reduced since input-box now has margin-bottom */
+  padding: 14px; /* Slightly tighter padding for a cleaner look */
   background: transparent;
   border: 1px solid var(--neon-cyan);
   color: var(--neon-cyan);
@@ -94,19 +100,15 @@ body {
   border-radius: 8px;
 }
 
-.login-btn:hover, .register-btn:hover{
-  background: var(--neon-cyan);
-  color: black;
-  box-shadow: 0 0 20px var(--neon-cyan);
-}
-
 /* Mobile: stack nicely */
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
     align-items: center;
   }
-  .login-section, .register-section {
+
+  .login-section,
+  .register-section {
     width: min(420px, 100%);
   }
 }

@@ -1,31 +1,30 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // You must add this import
 import "../css/loginpage.css";
 
-function LoginPage(){
-return(
-  <>
-    <nav className="branding">
-      <div className="logo">DNAi</div>
-      <div className="tagline">Diagnosis Assistant</div>
-    </nav>
-    <div className="page-wrapper">  
-      <div className="container">
+function LoginPage() {
+  const navigate = useNavigate(); // Initialize the navigate hook
 
-        <div className="login-section">
-          <h2>EXISTING PATIENTS</h2>
-            <input type="text" className="input-box" placeholder="Patient ID / Reference ID" />
-            <button className="login-btn">Login</button>
-        </div>
-
-        <div className="register-section">
-          <h2>NEW PATIENTS</h2>
-            <p className="description">Register a new patient to begin diagnosis</p>
-            <button className="register-btn">Register New Patient</button>
+  return (
+    <>
+      <nav className="branding">
+        <div className="logo">DNAi</div>
+        <div className="tagline">Diagnosis Assistant</div>
+      </nav>
+      <div className="page-wrapper">
+        <div className="container">
+          <div className="login-section">
+            <h2>DOCTOR'S LOGIN</h2>
+            <input type="text" className="input-box" placeholder="Doctor ID / License No." />
+            <input type="password" className="input-box" placeholder="Password" />
+            <button className="login-btn" onClick={() => navigate('/dashboard')}>
+              Login
+            </button>
+          </div>
         </div>
       </div>
-    </div>  
-  </>
-);
+    </>
+  );
 }
 
-export default LoginPage
+export default LoginPage;
