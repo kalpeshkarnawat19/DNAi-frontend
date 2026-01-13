@@ -3,7 +3,8 @@
   --deep-bg: #030508;
 }
 
-body, html {
+body,
+html {
   background-color: var(--deep-bg);
   color: white;
   font-family: 'Inter', sans-serif;
@@ -13,7 +14,8 @@ body, html {
 }
 
 .branding {
-  position: fixed;  /* Changed from absolute to fixed */
+  position: fixed;
+  /* Changed from absolute to fixed */
   top: 40px;
   left: 40px;
   text-align: left;
@@ -43,8 +45,10 @@ body, html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100vw;  /* Added viewport width */
-  padding: 0 40px;  /* Added padding so card doesn't touch edges on small screens */
+  width: 100vw;
+  /* Added viewport width */
+  padding: 0 40px;
+  /* Added padding so card doesn't touch edges on small screens */
   box-sizing: border-box;
 }
 
@@ -52,10 +56,10 @@ body, html {
   width: 100%;
   max-width: 600px;
   padding: 40px;
-  border: 1px solid rgba(0, 242, 255, 0.3); 
+  border: 1px solid rgba(0, 242, 255, 0.3);
   border-radius: 20px;
   background: rgba(0, 242, 255, 0.02);
-  box-shadow: 0 0 30px rgba(0, 242, 255, 0.05); 
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
   text-align: center;
 }
 
@@ -76,7 +80,7 @@ h2 {
 textarea {
   width: 100%;
   height: 180px;
-  background: rgba(255, 255, 255, 0.03); 
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   color: white;
@@ -95,10 +99,18 @@ textarea:focus {
   border-color: var(--neon-cyan);
 }
 
-.analyze-btn {
-  width: 50%;
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   margin-top: 30px;
-  padding: 18px;
+  width: 100%;
+}
+
+.action-btn {
+  width: 70%;
+  padding: 16px;
   background: transparent;
   border: 1px solid var(--neon-cyan);
   color: var(--neon-cyan);
@@ -111,8 +123,17 @@ textarea:focus {
   border-radius: 8px;
 }
 
-.analyze-btn:hover {
+.action-btn:hover {
   background: var(--neon-cyan);
   color: black;
   box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.back-link {
+  margin-top: 20px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  font-size: 0.8rem;
+  cursor: pointer;
 }

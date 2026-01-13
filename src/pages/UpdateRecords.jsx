@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "../css/updaterecords.css";
-import { useState } from 'react';
 
-function UpdateRecords(){
+function UpdateRecords() {
   const [symptoms, setSymptoms] = useState('');
-  return(
-    <>
+  const navigate = useNavigate();
+
+  const handleSave = () => {
+    console.log("Saving records:", symptoms);
+    alert("Records updated successfully!");
+    navigate('/dashboard');
+  };
+
+  return (
+    <div className="app-viewport">
       <nav className="branding">
         <div className="logo">DNAi</div>
         <div className="tagline">Diagnosis Assistant</div>
@@ -24,11 +32,22 @@ function UpdateRecords(){
             onChange={(e) => setSymptoms(e.target.value)}
           />
 
-          <button className="analyze-btn">Initialize Analysis</button>
+          {/* New Button Container */}
+          <div className="button-container">
+            <button className="action-btn" onClick={() => console.log("Analyzing...")}>
+              Initialize Analysis
+            </button>
+            <button className="action-btn" onClick={() => alert("Records Saved!")}>
+              Save Records
+            </button>
+            <span className="back-link" onClick={() => navigate('/dashboard')}>
+              ← Back to Dashboard
+            </span>
+          </div>
         </div>
       </main>
-    </>
-  )
+    </div>
+  );
 }
 
-export default UpdateRecords
+export default UpdateRecords;
