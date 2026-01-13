@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './App.css';
 import LoginPage from "./pages/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import AddPatient from './pages/NewPatient.jsx';
 
 function HomePage() {
   const [symptoms, setSymptoms] = useState('');
@@ -40,6 +41,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/NewPatient" element={<AddPatient />}/>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

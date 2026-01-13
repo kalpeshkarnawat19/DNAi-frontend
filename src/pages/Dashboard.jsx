@@ -6,7 +6,6 @@ function DoctorDashboard() {
   const navigate = useNavigate();
   
   // Mock data for the patient log
-  //<button className="glow-button small secondary">Update Records</button>
   const [patients] = useState([
     { id: 'P101', name: 'Jay Kelani', lastVisit: '2026-01-10', status: 'Diagnosed' },
     { id: 'P102', name: 'Kalpesh Karnawat', lastVisit: '2026-01-12', status: 'Pending' },
