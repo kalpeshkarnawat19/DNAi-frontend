@@ -29,7 +29,7 @@ export default function AddPatient() {
     const data = { patientId, patientName, action };
     console.log("Submitted:", data);
 
-    setMessage("✅ Patient added successfully!");
+    setMessage(" Patient added successfully!");
     setMessageType("success");
 
     // clear form
