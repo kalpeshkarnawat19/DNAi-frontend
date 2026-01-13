@@ -45,45 +45,53 @@ export default function AddPatient() {
   }
 
   return (
-    <div className="add-patient-page">
-      <div className="content-wrapper">
-        <h1 className="page-title">Add New Patient</h1>
+    <>
+      <nav className="branding">
+        <div className="logo">DNAi</div>
+        <div className="tagline">Diagnosis Assistant</div>
+      </nav>
+      
+      <div className="add-patient-page">
+        <div className="content-wrapper">
+          <h1 className="page-title">Add New Patient</h1>
 
-        {message && <p className={`message ${messageType}`}>{message}</p>}
+          {message && <p className={`message ${messageType}`}>{message}</p>}
 
-        <form onSubmit={handleSubmit} className="form-card">
-          <div className="form-group">
-            <label>Patient ID</label>
-            <input
-              value={patientId}
-              onChange={(e) => setPatientId(e.target.value)}
-              placeholder="P103"
-            />
-          </div>
+          <form onSubmit={handleSubmit} className="form-card">
+            <div className="form-group">
+              <label>Patient ID</label>
+              <input
+                value={patientId}
+                onChange={(e) => setPatientId(e.target.value)}
+                placeholder="P103"
+              />
+            </div>
 
-          <div className="form-group">
-            <label>Patient Name</label>
-            <input
-              value={patientName}
-              onChange={(e) => setPatientName(e.target.value)}
-              placeholder="Full name"
-            />
-          </div>
+            <div className="form-group">
+              <label>Patient Name</label>
+              <input
+                value={patientName}
+                onChange={(e) => setPatientName(e.target.value)}
+                placeholder="Full name"
+              />
+            </div>
 
-          <div className="form-group">
-            <label>Action</label>
-            <select value={action} onChange={(e) => setAction(e.target.value)}>
-              <option value="">Select</option>
-              <option value="view-analysis">View Analysis</option>
-              <option value="update-records">Update Records</option>
-            </select>
-          </div>
+            <div className="form-group">
+              <label>Action</label>
+              <select value={action} onChange={(e) => setAction(e.target.value)}>
+                <option value="">Select</option>
+                <option value="view-analysis">View Analysis</option>
+                <option value="update-records">Update Records</option>
+              </select>
+            </div>
 
-          <button type="submit" className="btn btn-primary">
-            Add Patient
-          </button>
-        </form>
+            <button type="submit" className="btn btn-primary">
+              Add Patient
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+  </>
+
   );
 }

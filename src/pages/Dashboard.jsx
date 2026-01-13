@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/dashboard.css';
+import AddPatient from './NewPatient';
+import UpdateRecords from './UpdateRecords';
 
 function DoctorDashboard() {
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ function DoctorDashboard() {
         <header className="welcome-header">
           <h1>Welcome, Dr. Kavin Sharma</h1>
           <div className="action-row">
-            <button className="glow-button small">Add New Patient</button>
+            <button className="glow-button small" onClick={() => navigate("/NewPatient")}>Add New Patient</button>
           </div>
         </header>
 
@@ -54,7 +56,7 @@ function DoctorDashboard() {
                     <button className="table-link">View Analysis</button>
                   </td>
                   <td>
-                    <button className="glow-button small secondary">Update Records</button>
+                    <button className="glow-button small secondary" onClick={() => navigate("/UpdateRecords")}>Update Records</button>
                   </td>
                 </tr>
               ))}

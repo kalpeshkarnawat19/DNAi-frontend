@@ -4,6 +4,7 @@ import './App.css';
 import LoginPage from "./pages/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import AddPatient from './pages/NewPatient.jsx';
+import UpdateRecords from './pages/UpdateRecords.jsx';
 
 function HomePage() {
   const [symptoms, setSymptoms] = useState('');
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/NewPatient" element={<AddPatient />}/>
+        <Route path="/UpdateRecords" element={<UpdateRecords />}/>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
