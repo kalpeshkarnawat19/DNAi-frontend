@@ -1,63 +1,64 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/newpatient.css";
 
 export default function AddPatient() {
+  const navigate = useNavigate();
   const [patientId, setPatientId] = useState("");
   const [patientName, setPatientName] = useState("");
-  const [action, setAction] = useState("");
+  const [status, setStatus] = useState("pending");
+  const [medicalCase, setMedicalCase] = useState("");
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    //check whether all fields are filled
-    if (!patientId || !patientName || !action) {
+    if (!patientId || !patientName || !medicalCase) {
       setMessage("Please fill all fields.");
       setMessageType("error");
       return;
     }
 
-    //patient Id rule
     if (!/^P\d+$/.test(patientId)) {
       setMessage("Patient ID must look like P103 (P + numbers).");
       setMessageType("error");
       return;
     }
 
-    //data collection
-    const data = { patientId, patientName, action };
+    const data = { patientId, patientName, status, medicalCase };
     console.log("Submitted:", data);
 
-    setMessage(" Patient added successfully!");
+    setMessage("Patient added successfully!");
     setMessageType("success");
 
-    // clear form
     setPatientId("");
     setPatientName("");
-    setAction("");
+    setMedicalCase("");
 
-    // Clear message after 3 seconds
     setTimeout(() => {
       setMessage("");
       setMessageType("");
+      navigate('/dashboard');
     }, 3000);
   }
 
   return (
-    <>
+    <div className="add-patient-page">
       <nav className="branding">
         <div className="logo">DNAi</div>
         <div className="tagline">Diagnosis Assistant</div>
       </nav>
-      
-      <div className="add-patient-page">
-        <div className="content-wrapper">
-          <h1 className="page-title">Add New Patient</h1>
 
+      <div className="content-wrapper">
+        <h1 className="page-title">Add New Patient</h1>
+
+
+        <form onSubmit={handleSubmit} className="form-card">
           {message && <p className={`message ${messageType}`}>{message}</p>}
 
-          <form onSubmit={handleSubmit} className="form-card">
+          {/* Row 1: ID, Name, and Status */}
+          <div className="form-row">
             <div className="form-group">
               <label>Patient ID</label>
               <input
@@ -77,21 +78,37 @@ export default function AddPatient() {
             </div>
 
             <div className="form-group">
-              <label>Action</label>
-              <select value={action} onChange={(e) => setAction(e.target.value)}>
-                <option value="">Select</option>
-                <option value="view-analysis">View Analysis</option>
-                <option value="update-records">Update Records</option>
+              <label>Status</label>
+              <select value={status} onChange={(e) => setStatus(e.target.value)}>
+                <option value="pending">Pending</option>
+                <option value="diagnosed">Diagnosed</option>
+                <option value="urgent">Urgent</option>
               </select>
             </div>
+          </div>
 
-            <button type="submit" className="btn btn-primary">
-              Add Patient
-            </button>
-          </form>
-        </div>
+          {/* Row 2: Medical Case Textarea */}
+          <div className="form-group full-width">
+            <label>Medical Case / Symptoms</label>
+            <textarea
+              className="medical-textarea"
+              value={medicalCase}
+              onChange={(e) => setMedicalCase(e.target.value)}
+              placeholder="Describe the medical case..."
+            />
+          </div>
+
+          {/* Row 3: Action Button (Centered via CSS) */}
+          <button type="submit" className="action-btn">
+            Add Patient
+          </button>
+
+          {/* Row 4: Subtle Link */}
+          <span className="back-link" onClick={() => navigate('/dashboard')}>
+            ← Back to Dashboard
+          </span>
+        </form>
       </div>
-  </>
-
+    </div>
   );
 }
