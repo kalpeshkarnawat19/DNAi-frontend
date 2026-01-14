@@ -31,11 +31,9 @@ body {
 .page-wrapper {
   min-height: 100vh;
   width: 100vw;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 20px;
 }
 
@@ -43,11 +41,9 @@ body {
   width: min(800px, 92vw);
   padding: 40px;
   border-radius: 20px;
-
   border: 1px solid rgba(0, 242, 255, 0.3);
   background: rgba(0, 242, 255, 0.02);
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
-
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -61,30 +57,34 @@ body {
   border-radius: 8px;
   flex: 1;
   text-align: center;
+  display: flex;
+  /* Added to help center contents */
+  flex-direction: column;
+  align-items: center;
 }
 
-.description {
-  color: rgba(255, 255, 255, 0.6);
-  margin: 20px 0;
-  font-size: 14px;
-}
-
+/* Unified Input Style */
 .input-box {
-  width: 80%; 
+  width: 90%;
+  /* Increased for better look */
   padding: 12px;
-  margin-bottom: 25px; 
+  margin-bottom: 20px;
   border: 1px solid rgba(0, 242, 255, 0.3);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
   color: white;
+  outline: none;
 }
 
+.input-box:focus {
+  border-color: var(--neon-cyan);
+}
 
 .login-btn,
 .register-btn {
-  width: 55%; 
-  margin-top: 10px; 
-  padding: 14px; 
+  width: 70%;
+  margin-top: 10px;
+  padding: 14px;
   background: transparent;
   border: 1px solid var(--neon-cyan);
   color: var(--neon-cyan);
@@ -95,6 +95,83 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
   border-radius: 8px;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  background: var(--neon-cyan);
+  color: black;
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-card {
+  background: #141824;
+  padding: 3rem;
+  border-radius: 16px;
+  border: 1px solid #00d9ff;
+  width: 90%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 217, 255, 0.15);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-card h3 {
+  color: #00d9ff;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.modal-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.subtle-cancel {
+  background: transparent;
+  border: none;
+  color: #4a5061;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.subtle-cancel:hover {
+  color: white;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 900px) {
