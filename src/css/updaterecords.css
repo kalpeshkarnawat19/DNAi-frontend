@@ -15,7 +15,6 @@ html {
 
 .branding {
   position: fixed;
-  /* Changed from absolute to fixed */
   top: 40px;
   left: 40px;
   text-align: left;
@@ -46,9 +45,7 @@ html {
   align-items: center;
   min-height: 100vh;
   width: 100vw;
-  /* Added viewport width */
   padding: 0 40px;
-  /* Added padding so card doesn't touch edges on small screens */
   box-sizing: border-box;
 }
 

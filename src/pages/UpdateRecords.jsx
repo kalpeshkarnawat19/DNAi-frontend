@@ -23,7 +23,7 @@ function UpdateRecords() {
         <div className="input-card">
           <h2>Enter The Symptoms</h2>
           <p className="hint">
-            Please document patient findings using standardized medical terminology...
+            Please document patient findings using standardized medical terminology
           </p>
 
           <textarea
@@ -32,13 +32,9 @@ function UpdateRecords() {
             onChange={(e) => setSymptoms(e.target.value)}
           />
 
-          {/* New Button Container */}
           <div className="button-container">
-            <button className="action-btn" onClick={() => console.log("Analyzing...")}>
-              Initialize Analysis
-            </button>
             <button className="action-btn" onClick={() => alert("Records Saved!")}>
-              Save Records
+              Save Record
             </button>
             <span className="back-link" onClick={() => navigate('/dashboard')}>
               ← Back to Dashboard
