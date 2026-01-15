@@ -7,6 +7,11 @@ export default function AddPatient() {
   const [patientId, setPatientId] = useState("");
   const [patientName, setPatientName] = useState("");
   const [status, setStatus] = useState("pending");
+  const [age, setAge] = useState("");
+  const [initialSymptoms, setInitialSymptoms] = useState("");
+  const [duration, setDuration] = useState("");
+  const [comorbidities, setComorbidities] = useState("");
+  const [familyHistory, setFamilyHistory] = useState("");
   const [medicalCase, setMedicalCase] = useState("");
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
@@ -26,7 +31,8 @@ export default function AddPatient() {
       return;
     }
 
-    const data = { patientId, patientName, status, medicalCase };
+    const data = { patientId, patientName, age, initialSymptoms, duration, comorbidities, familyHistory,status, medicalCase };
+
     console.log("Submitted:", data);
 
     setMessage("Patient added successfully!");
@@ -34,8 +40,14 @@ export default function AddPatient() {
 
     setPatientId("");
     setPatientName("");
-    setMedicalCase("");
+    setAge("");
 
+    setMessage("");
+    setInitialSymptoms("");
+    setDuration("");
+    setFamilyHistory("");
+    setMedicalCase("");
+    setComorbidities("");
     setTimeout(() => {
       setMessage("");
       setMessageType("");
@@ -44,12 +56,13 @@ export default function AddPatient() {
   }
 
   return (
-    <div className="add-patient-page">
-      <nav className="branding">
-        <div className="logo">DNAi</div>
-        <div className="tagline">Diagnosis Assistant</div>
-      </nav>
+  <>
+    <nav className="branding">
+      <div className="logo">DNAi</div>
+      <div className="tagline">Diagnosis Assistant</div>
+    </nav>
 
+    <div className="add-patient-page">
       <div className="content-wrapper">
         <h1 className="page-title">Add New Patient</h1>
 
@@ -85,9 +98,62 @@ export default function AddPatient() {
                 <option value="urgent">Urgent</option>
               </select>
             </div>
+
+            <div className="form-group">
+              <label>Age</label>
+              <input
+                value={patientName}
+                onChange={(e) => setPatientName(e.target.value)}
+                placeholder="Full name"
+              />
+            </div>
           </div>
 
-          {/* Row 2: Medical Case Textarea */}
+          {/* Row 2: Inital Symptoms and Duration */}
+          <div className="form-row">
+            <div className="form-group" >
+              <label>Initial Symptoms</label>
+              <textarea
+                value={initialSymptoms}
+                onChange={(e) => setInitialSymptoms(e.target.value)}
+                placeholder="Describe initial symptoms..."
+                rows="3"
+              />
+            </div>
+
+             <div className="form-group">
+              <label>Duration</label>
+              <input
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                placeholder="e.g., 2 weeks, 3 days"
+              />
+            </div>
+          </div>
+
+          {/* Row 3: Combordities and family history */}
+          <div className="form-row">
+            <div className="form-group">
+              <label>Comborbidities</label>
+              <textarea
+                value={comorbidities}
+                onChange={(e) => setMedicalCase(e.target.value)}
+                placeholder="Mention any existing consitions.."
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Family History</label>
+              <textarea
+                value={familyHistory}
+                onChange={(e) => setFamilyHistory(e.target.value)}
+                placeholder="Relevant family medical history..."
+                rows="3"
+              />
+            </div>
+          </div>
+
+          {/* Row 4: Medical Case Textarea */}
           <div className="form-group full-width">
             <label>Medical Case / Symptoms</label>
             <textarea
@@ -98,17 +164,18 @@ export default function AddPatient() {
             />
           </div>
 
-          {/* Row 3: Action Button (Centered via CSS) */}
+          {/* Row 5: Action Button (Centered via CSS) */}
           <button type="submit" className="action-btn">
             Add Patient
           </button>
 
-          {/* Row 4: Subtle Link */}
+          {/* Row 6: Subtle Link */}
           <span className="back-link" onClick={() => navigate('/dashboard')}>
             ← Back to Dashboard
           </span>
         </form>
       </div>
     </div>
+  </>  
   );
 }
