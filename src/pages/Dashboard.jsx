@@ -7,8 +7,8 @@ function DoctorDashboard() {
 
   // Mock data for the patient log
   const [patients] = useState([
-    { id: 'P101', name: 'Jay Kelani', status: 'Diagnosed' },
-    { id: 'P102', name: 'Kalpesh Karnawat', status: 'Pending' },
+    { id: 'P101', name: 'Jay Kelani' },
+    { id: 'P102', name: 'Kalpesh Karnawat' },
   ]);
 
   return (
@@ -38,35 +38,29 @@ function DoctorDashboard() {
               <tr>
                 <th>Patient ID</th>
                 <th>Name</th>
-                <th>Status</th>
-                <th>Manage Patient</th>
+                <th>Manage Patient</th>  
+                <th>Clinical Review</th>  
               </tr>
             </thead>
             <tbody>
               {patients.map((p) => (
                 <tr key={p.id}>
                   <td>{p.id}</td>
-                  <td>{p.name}</td>
-                  <td>
-                    <span className={`status ${p.status.toLowerCase()}`}>
-                      {p.status}
-                    </span>
+                  <td>{p.name}</td>    
+
+                   <td className="action-cell">
+                    <button
+                      className="glow-button small secondary"
+                      onClick={() => navigate("/UpdateRecords")}
+                    >
+                      Update Records
+                    </button>
                   </td>
 
-                  <td>
-                    <div className="action-group">
-                      <button
-                        className="glow-button small secondary"
-                        onClick={() => navigate("/UpdateRecords")}
-                      >
-                        Update Records
-                      </button>
-                      <button
-                        className="glow-button small secondary"
-                      >
-                        Patient File
-                      </button>
-                    </div>
+                  <td className="action-cell">
+                    <button className="glow-button small secondary">
+                    Patient File
+                    </button>
                   </td>
                 </tr>
               ))}

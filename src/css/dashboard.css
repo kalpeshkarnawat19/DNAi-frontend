@@ -53,9 +53,11 @@
 
 .patient-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 12px;
 }
+
 
 .patient-table th {
   text-align: left;
@@ -104,27 +106,6 @@
   align-items: center;
   gap: 12px;
   margin: 0;
-}
-
-.status {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: inline-block;
-}
-
-.status.diagnosed {
-  background: rgba(0, 255, 136, 0.1);
-  color: #00ff88;
-  border: 1px solid rgba(0, 255, 136, 0.3);
-}
-
-.status.pending {
-  background: rgba(255, 204, 0, 0.1);
-  color: #ffcc00;
-  border: 1px solid rgba(255, 204, 0, 0.3);
 }
 
 .glow-button.small {

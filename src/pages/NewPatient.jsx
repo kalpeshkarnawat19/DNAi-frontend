@@ -104,7 +104,7 @@ export default function AddPatient() {
               <input
                 value={patientName}
                 onChange={(e) => setPatientName(e.target.value)}
-                placeholder="Full name"
+                placeholder="Age in years"
               />
             </div>
           </div>
