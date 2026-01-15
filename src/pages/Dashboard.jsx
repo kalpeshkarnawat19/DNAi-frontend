@@ -38,7 +38,6 @@ function DoctorDashboard() {
               <tr>
                 <th>Patient ID</th>
                 <th>Name</th>
-                <th>Status</th>
                 <th>Manage Patient</th>
               </tr>
             </thead>
@@ -47,11 +46,6 @@ function DoctorDashboard() {
                 <tr key={p.id}>
                   <td>{p.id}</td>
                   <td>{p.name}</td>
-                  <td>
-                    <span className={`status ${p.status.toLowerCase()}`}>
-                      {p.status}
-                    </span>
-                  </td>
 
                   <td>
                     <div className="action-group">
@@ -63,6 +57,7 @@ function DoctorDashboard() {
                       </button>
                       <button
                         className="glow-button small secondary"
+                        onClick={() => navigate("/PatientFile")}
                       >
                         Patient File
                       </button>
