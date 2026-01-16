@@ -7,8 +7,12 @@ function DoctorDashboard() {
 
   // Mock data for the patient log
   const [patients] = useState([
-    { id: 'P101', name: 'Jay Kelani' },
-    { id: 'P102', name: 'Kalpesh Karnawat' },
+    { id: 'P101', name: 'Jay' },
+    { id: 'P102', name: 'Kalpesh' },
+    { id: 'P103', name: 'Yosha' },
+    { id: 'P104', name: 'Ishita' },
+    { id: 'P105', name: 'Neepun' },
+    { id: 'P106', name: 'Test Run ' },
   ]);
 
   return (
@@ -58,7 +62,9 @@ function DoctorDashboard() {
                   </td>
 
                   <td className="action-cell">
-                    <button className="glow-button small secondary">
+                    <button className="glow-button small secondary"
+                    onClick={() => navigate("/PatientFile")}
+                    >
                     Patient File
                     </button>
                   </td>

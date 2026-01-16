@@ -34,7 +34,7 @@ function PatientFile() {
                     </div>
                     <div className="action-row">
                         <button className="glow-button small secondary" onClick={() => navigate("/Dashboard")}>
-                            Back to Dashboard
+                            Dashboard
                         </button>
                     </div>
                 </header>

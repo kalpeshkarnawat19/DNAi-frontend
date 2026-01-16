@@ -40,6 +40,9 @@
   padding: 30px;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .patient-log-section h3 {
@@ -89,9 +92,12 @@
 
 .patient-table th:nth-child(3),
 .patient-table td:nth-child(3) {
-  text-align: center !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  /* Change from center to left to match the button alignment */
+  text-align: left !important;
+  padding-left: 55px !important;
+  /* Adjust this value to nudge the text over the buttons */
+  width: 250px;
+  /* Gives the column enough room for the buttons */
 }
 
 .patient-table th:nth-child(4),
@@ -147,4 +153,20 @@
 .glow-button.small:not(.secondary):hover {
   box-shadow: 0 0 25px var(--neon-cyan);
   transform: translateY(-2px);
+}
+
+/*Scroll Bar*/
+.patient-log-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.patient-log-section::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.patient-log-section::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--neon-cyan);
 }
