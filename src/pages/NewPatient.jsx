@@ -19,7 +19,7 @@ export default function AddPatient() {
     e.preventDefault();
 
     if (!patientId || !patientName || !medicalCase) {
-      setMessage("Please fill all fields.");
+      setMessage("Please fill the required fields (ID, Name, and Symptoms).");
       setMessageType("error");
       return;
     }
@@ -31,143 +31,115 @@ export default function AddPatient() {
     }
 
     const data = { patientId, patientName, age, initialSymptoms, duration, comorbidities, familyHistory, medicalCase };
-
-    console.log("Submitted:", data);
+    console.log("Submitted Data:", data);
 
     setMessage("Patient added successfully!");
     setMessageType("success");
 
-    setPatientId("");
-    setPatientName("");
-    setAge("");
-
-    setMessage("");
-    setInitialSymptoms("");
-    setDuration("");
-    setFamilyHistory("");
-    setMedicalCase("");
-    setComorbidities("");
     setTimeout(() => {
-      setMessage("");
-      setMessageType("");
       navigate('/dashboard');
-    }, 3000);
+    }, 2000);
   }
 
   return (
-  <>
-    <nav className="branding">
-      <div className="logo">DNAi</div>
-      <div className="tagline">Diagnosis Assistant</div>
-    </nav>
-
     <div className="add-patient-page">
-      <div className="content-wrapper">
-        <h1 className="page-title">ADD NEW PATIENT</h1>
+      <nav className="branding">
+        <div className="logo">DNAi</div>
+        <div className="tagline">Diagnosis Assistant</div>
+      </nav>
 
+      <main className="content-wrapper">
+        <h1 className="page-title">ADD NEW PATIENT</h1>
 
         <form onSubmit={handleSubmit} className="form-card">
           {message && <p className={`message ${messageType}`}>{message}</p>}
 
-          {/* Row 1: ID, Name, and Status */}
-            <div className="form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Patient ID</label>
-                  <input
-                    value={patientId}
-                    onChange={(e) => setPatientId(e.target.value)}
-                    placeholder="P103"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label>Patient Name</label>
-                  <input
-                    value={patientName}
-                    onChange={(e) => setPatientName(e.target.value)}
-                    placeholder="Full name"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label>Age</label>
-                  <input
-                    value={patientName}
-                    onChange={(e) => setPatientName(e.target.value)}
-                    placeholder="Age in years"
-                  />
-                </div>
-              </div>
-
-              {/* Row 2: Inital Symptoms and Duration */}
-              <div className="form-row">
-                <div className="form-group" >
-                  <label>Initial Symptoms</label>
-                  <textarea
-                    value={initialSymptoms}
-                    onChange={(e) => setInitialSymptoms(e.target.value)}
-                    placeholder="Describe initial symptoms..."
-                    rows="3"
-                  />
-                </div>
-
-                  <div className="form-group">
-                  <label>Duration</label>
-                  <input
-                    value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
-                    placeholder="e.g., 2 weeks, 3 days"
-                  />
-                </div>
-              </div>
-
-              {/* Row 3: Combordities and family history */}
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Comborbidities</label>
-                  <textarea
-                    value={comorbidities}
-                    onChange={(e) => setMedicalCase(e.target.value)}
-                    placeholder="Mention any existing consitions.."
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label>Family History</label>
-                  <textarea
-                    value={familyHistory}
-                    onChange={(e) => setFamilyHistory(e.target.value)}
-                    placeholder="Relevant family medical history..."
-                    rows="3"
-                  />
-                </div>
-              </div>
-
-              {/* Row 4: Medical Case Textarea */}
-              <div className="form-group full-width">
-                <label>Medical Case / Symptoms</label>
-                <textarea
-                  className="medical-textarea"
-                  value={medicalCase}
-                  onChange={(e) => setMedicalCase(e.target.value)}
-                  placeholder="Describe the medical case..."
-                />
-              </div>
-
-              {/* Row 5: Action Button (Centered via CSS) */}
-              <button type="submit" className="action-btn">
-                Add Patient
-              </button>
-
-              {/* Row 6: Subtle Link */}
-              <span className="back-link" onClick={() => navigate('/dashboard')}>
-                ← Back to Dashboard
-              </span>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Patient ID</label>
+              <input
+                value={patientId}
+                onChange={(e) => setPatientId(e.target.value)}
+                placeholder="P103"
+              />
             </div>
-          </form>
-      </div>
+            <div className="form-group">
+              <label>Patient Name</label>
+              <input
+                value={patientName}
+                onChange={(e) => setPatientName(e.target.value)}
+                placeholder="Full name"
+              />
+            </div>
+            <div className="form-group">
+              <label>Age</label>
+              <input
+                value={age}
+                onChange={(e) => setAge(e.target.value)} 
+                placeholder="Age in years"
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label>Initial Symptoms</label>
+              <textarea
+                value={initialSymptoms}
+                onChange={(e) => setInitialSymptoms(e.target.value)}
+                placeholder="Describe initial symptoms..."
+                rows="2"
+              />
+            </div>
+            <div className="form-group">
+              <label>Duration</label>
+              <input
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                placeholder="e.g.,72 hours, 2 weeks"
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label>Comorbidities</label>
+              <textarea
+                value={comorbidities}
+                onChange={(e) => setComorbidities(e.target.value)} 
+                placeholder="Existing conditions..."
+                rows="2"
+              />
+            </div>
+            <div className="form-group">
+              <label>Family History</label>
+              <textarea
+                value={familyHistory}
+                onChange={(e) => setFamilyHistory(e.target.value)}
+                placeholder="Relevant history"
+                rows="2"
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <label>Medical Case</label>
+            <textarea
+              className="medical-textarea"
+              value={medicalCase}
+              onChange={(e) => setMedicalCase(e.target.value)}
+              placeholder="Provide a detailed clinical description"
+            />
+          </div>
+
+          <button type="submit" className="action-btn">
+            Add Patient
+          </button>
+
+          <span className="back-link" onClick={() => navigate('/dashboard')}>
+            ← Back to Dashboard
+          </span>
+        </form>
+      </main>
     </div>
-  </>  
   );
 }

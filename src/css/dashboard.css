@@ -3,6 +3,35 @@
   --bg-dark: #05070a;
 }
 
+.branding {
+  position: fixed;
+  top: 60px;
+  left: 50px;
+  text-align: left;
+  z-index: 1000;
+  pointer-events: none;
+  background: transparent !important; 
+}
+
+.logo {
+  font-size: 3.0rem !important;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  letter-spacing: 4px;
+  line-height: 1.1;
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+  margin: 0;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  letter-spacing: 3px;
+  margin-top: 8px;
+  margin-left: 4px;
+  color: white;
+}
+
 .app-viewport.dashboard-layout {
   display: flex;
   flex-direction: column;
@@ -92,12 +121,10 @@
 
 .patient-table th:nth-child(3),
 .patient-table td:nth-child(3) {
-  /* Change from center to left to match the button alignment */
   text-align: left !important;
   padding-left: 55px !important;
-  /* Adjust this value to nudge the text over the buttons */
   width: 250px;
-  /* Gives the column enough room for the buttons */
+  
 }
 
 .patient-table th:nth-child(4),
@@ -155,7 +182,6 @@
   transform: translateY(-2px);
 }
 
-/*Scroll Bar*/
 .patient-log-section::-webkit-scrollbar {
   width: 6px;
 }
