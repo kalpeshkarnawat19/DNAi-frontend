@@ -58,7 +58,8 @@ function DoctorDashboard() {
                   </td>
 
                   <td className="action-cell">
-                    <button className="glow-button small secondary">
+                    <button className="glow-button small secondary"
+                    onClick={() => navigate("/PatientFile")}>
                     Patient File
                     </button>
                   </td>

@@ -91,15 +91,6 @@ export default function AddPatient() {
             </div>
 
             <div className="form-group">
-              <label>Status</label>
-              <select value={status} onChange={(e) => setStatus(e.target.value)}>
-                <option value="pending">Pending</option>
-                <option value="diagnosed">Diagnosed</option>
-                <option value="urgent">Urgent</option>
-              </select>
-            </div>
-
-            <div className="form-group">
               <label>Age</label>
               <input
                 value={patientName}
