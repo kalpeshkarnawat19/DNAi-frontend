@@ -1,3 +1,5 @@
+/* loginpage.css */
+
 :root {
   --deep-bg: #05070a;
   --neon-cyan: #00f2ff;
@@ -12,76 +14,113 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
   background: var(--deep-bg);
-  color: white;
-  font-family: Inter, sans-serif;
+  overflow: hidden; /* Prevents awkward scrollbars on the login screen */
 }
 
+/* 1. BRANDING: FIXED & ISOLATED */
 .branding {
   position: fixed;
-  top: 40px;
-  left: 40px;
+  top: 60px;
+  left: 50px;
   text-align: left;
-  z-index: 10;
+  z-index: 1000;
+  pointer-events: none;
+  
+  /* THE FIX: Remove any background color */
+  background: transparent !important; 
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
+.logo {
+  font-size: 3.0rem !important;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  letter-spacing: 4px;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+  margin: 0;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  letter-spacing: 3px;
+  margin-top: 8px;
+  margin-left: 4px;
+  color: white;
+}
+
+/* 2. THE FIX: LOCKED CENTERING FOR THE LOGIN BOX */
 .page-wrapper {
   min-height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  position: relative;
 }
 
 .container {
-  width: min(800px, 92vw);
+  position: fixed;
+  top: 55%; /* Slightly lower than 50% to give the logo more breathing room */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(500px, 92vw); /* Narrower for a cleaner login look */
   padding: 40px;
   border-radius: 20px;
   border: 1px solid rgba(0, 242, 255, 0.3);
   background: rgba(0, 242, 255, 0.02);
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
   display: flex;
-  justify-content: center;
-  gap: 40px;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.login-section,
-.register-section {
-  border: 1px solid rgba(0, 242, 255, 0.3);
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  flex: 1;
+.login-section {
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.login-section h2 {
+  font-weight: 200;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* 3. INPUTS & BUTTONS */
 .input-box {
-  width: 90%;
-  padding: 12px;
+  width: 100%;
+  padding: 15px;
   margin-bottom: 20px;
-  border: 1px solid rgba(0, 242, 255, 0.3);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
   color: white;
   outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 .input-box:focus {
   border-color: var(--neon-cyan);
 }
 
-.login-btn,
-.register-btn {
-  width: 70%;
-  margin-top: 10px;
-  padding: 14px;
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.login-btn {
+  width: 80%;
+  padding: 16px;
   background: transparent;
   border: 1px solid var(--neon-cyan);
   color: var(--neon-cyan);
@@ -90,17 +129,17 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
   border-radius: 8px;
 }
 
-.login-btn:hover,
-.register-btn:hover {
+.login-btn:hover {
   background: var(--neon-cyan);
   color: black;
   box-shadow: 0 0 20px var(--neon-cyan);
+  transform: translateY(-2px);
 }
 
+/* 4. MODAL OVERLAY */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -108,77 +147,32 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 2000;
 }
 
 .modal-card {
-  background: #141824;
+  background: #05070a;
   padding: 3rem;
-  border-radius: 16px;
-  border: 1px solid #00d9ff;
+  border-radius: 20px;
+  border: 1px solid var(--neon-cyan);
   width: 90%;
   max-width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 0 40px rgba(0, 217, 255, 0.15);
-  animation: modalFadeIn 0.3s ease-out;
-}
-
-.modal-card h3 {
-  color: #00d9ff;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.modal-actions {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 10px;
+  box-shadow: 0 0 40px rgba(0, 242, 255, 0.15);
 }
 
 .subtle-cancel {
   background: transparent;
   border: none;
-  color: #4a5061;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.85rem;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .subtle-cancel:hover {
   color: white;
-}
-
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .login-section,
-  .register-section {
-    width: min(420px, 100%);
-  }
 }
