@@ -20,11 +20,16 @@ function UpdateRecords() {
       alert("Please enter both a Title and Symptoms.");
       return;
     }
-    alert("Records Saved!");
-    navigate('/dashboard');
-  };
 
-  const currentCount = title.match(/\S+/g) ? title.match(/\S+/g).length : 0;
+    alert("Records Saved!");
+    navigate('/patient-file', { 
+      state: { 
+        date: date, 
+        title: title, 
+        body: symptoms 
+      } 
+    });
+  };
 
   return (
     <div className="update-records-page">
@@ -75,6 +80,6 @@ function UpdateRecords() {
       </main>
     </div>
   );
-}
+} 
 
 export default UpdateRecords;
