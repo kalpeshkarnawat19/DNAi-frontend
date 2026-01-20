@@ -27,10 +27,8 @@ function PatientFile() {
             <main className="file-content-wrapper">
                 <h1 className="page-title">PATIENT CLINICAL RECORD</h1>
 
-                {/* NEW LAYOUT GRID */}
                 <div className="file-layout-grid">
 
-                    {/* LEFT SIDE: Clinical History */}
                     <section className="history-section">
                         <h2 className="section-subtitle">Clinical History</h2>
                         <div className="table-container">
@@ -94,9 +92,9 @@ function PatientFile() {
                 </div>
 
                 <div className="action-footer">
-                    <button className="back-btn" onClick={() => navigate('/dashboard')}>
+                    <span className="back-btn" onClick={() => navigate('/dashboard')}>
                         ← Back to Dashboard
-                    </button>
+                    </span>
                 </div>
             </main>
         </div>
